@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.StuInfoMapper">
+    <select id="getAll" resultType="com.example.pojo.dto.StuInfoDto">
+         select * from sys_student
+    </select>
+    <insert id="insert" parameterType="com.example.pojo.vo.StuInfoOperateVo">
+        INSERT INTO sys_student (stuID,classID,stuName,sex,address,stuTel,contact,contactTel)
+        VALUES (#{stuID},#{classID},#{stuName},#{sex},#{address},#{stuTel},#{contact},#{contactTel});
+    </insert>
+    <delete id="delete">
+        DELETE FROM sys_student WHERE stuID = #{stuID};
+    </delete>
+</mapper>
